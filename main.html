@@ -1,16 +1,40 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 
 <head>
-	<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rope Connection Cost</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
+    <div class="container">
+        <h1>Calculate Minimum Cost to Connect Ropes</h1>
+        
+        <div>
+            <label for="numRopes">Enter number of ropes (N):</label>
+            <input type="number" id="numRopes" placeholder="Number of ropes" />
+        </div>
+        
+        <div>
+            <label for="ropeLengths">Enter rope lengths (comma separated):</label>
+            <input type="text" id="ropeLengths" placeholder="e.g., 2, 3, 4, 6" />
+        </div>
+        
+        <button onclick="calculateCost()">Calculate Minimum Cost</button>
+    </div>
 
+    <!-- Custom Modal for displaying the result -->
+    <div id="resultModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2>Minimum Cost:</h2>
+            <p id="result">-</p>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="script.js"></script>
 </body>
 
 </html>
