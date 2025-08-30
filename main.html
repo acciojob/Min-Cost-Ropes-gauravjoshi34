@@ -1,58 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Min Cost to Connect Ropes</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-    <script type="text/javascript">
-        // Function to calculate the minimum cost to connect ropes
-        function minCost(arr) {
-            // Sort the ropes in ascending order
-            arr.sort((a, b) => a - b);
 
-            let totalCost = 0;
+    <div class="container">
+        <h1>Calculate Minimum Cost to Connect Ropes</h1>
+        
+        <div>
+            <label for="numRopes">Enter number of ropes (N):</label>
+            <input type="number" id="numRopes" placeholder="Number of ropes" />
+        </div>
+        
+        <div>
+            <label for="ropeLengths">Enter rope lengths (comma separated):</label>
+            <input type="text" id="ropeLengths" placeholder="e.g., 4, 3, 2, 6" />
+        </div>
+        
+        <button onclick="calculateCost()">Calculate Min Cost</button>
+        
+        <!-- Display result -->
+        <p id="result"></p>
+    </div>
 
-            // While there is more than one rope, combine the two smallest
-            while (arr.length > 1) {
-                let firstRope = arr.shift();  // Take the smallest rope
-                let secondRope = arr.shift(); // Take the next smallest rope
+    <!-- Link to JavaScript -->
+    <script type="text/javascript" src="script.js"></script>
 
-                // The cost to connect the two ropes is their sum
-                let newRope = firstRope + secondRope;
-                totalCost += newRope;  // Add the cost to the total
-
-                // Add the new combined rope back into the array
-                arr.push(newRope);
-
-                // Sort the array again to ensure the smallest ropes are first
-                arr.sort((a, b) => a - b);
-            }
-
-            return totalCost;  // Return the total cost
-        }
-
-        // Main function to prompt the user and show the result
-        function Main() {
-            var n = prompt("Enter the number of ropes");
-            var arr = [];
-            
-            // Get the lengths of ropes from the user
-            for (var i = 0; i < n; i++) {
-                arr[i] = parseInt(prompt("Enter length of rope " + (i + 1)), 10);
-            }
-
-            // Call the minCost function and alert the result
-            var result = minCost(arr);
-            alert("The minimum cost to connect all the ropes is: " + result);
-        }
-
-        // Run the main function to start the program
-        Main();
-    </script>
 </body>
-
 </html>
