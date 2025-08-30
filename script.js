@@ -1,13 +1,13 @@
-// Function to calculate the minimum cost to connect ropes
+// Min cost function to calculate the minimum cost to connect ropes
 function mincost(arr) {
     if (arr.length < 1) {
         return 0;
     }
 
     let totalcost = 0;
-    arr.sort((a, b) => a - b);
-
-    // While there is more than one rope
+    arr.sort((a, b) => a - b);  // Sort in ascending order
+    
+    // While there is more than one rope, combine the two smallest
     while (arr.length > 1) {
         let firstrope = arr.shift();  // Get the smallest rope
         let secondrope = arr.shift(); // Get the second smallest rope
@@ -22,11 +22,11 @@ function mincost(arr) {
     return totalcost;  // Return the total cost
 }
 
-// Function to trigger the calculation and show the result
+// Function to trigger the calculation and display the result on the same screen
 function calculateCost() {
     const input = document.getElementById("ropeLengths").value;  // Get input value
     if (input.trim() === "") {
-        alert("Please enter some rope lengths.");
+        document.getElementById("result").textContent = "Please enter valid rope lengths.";
         return;
     }
 
@@ -36,6 +36,6 @@ function calculateCost() {
     // Call the mincost function to calculate the total cost
     let result = mincost(arr);
     
-    // Display the result
+    // Display the result directly on the page
     document.getElementById("result").textContent = "The minimum cost to connect all ropes is: " + result;
 }
